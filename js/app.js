@@ -29,27 +29,6 @@ Shop.prototype.renderData = function () {
     addElement('td', tableTr, this.hourlyResultsArray[i]);
   }
   addElement('td', tableTr, this.totalSales);
-
-
-  ///
-
-  //function to render totals in footer  tr 
-  // function renderFooter () {
-  //   addElement('tr', tableTr,'Total');
-  //   // for (var i = 0; i < store.hours.length; i++) {
-  //   //   addElement('td', tableTr, store.hours[i]);
-  //   // }
-  // }
-
-  // addElement('td', tableTr, this.shopName);
-  // for (var i = 0; i < this.hourlyResultsArray.length; i++) {
-  //   addElement('td', tableTr, this.hourlyResultsArray[i]);
-  // }
-  //tr
-
-  // function renderFooter{
-  //   addElement('td', tableTr,'Total');
-  // }
 }
 
 // Random Customer sales
@@ -99,10 +78,6 @@ tokyo.renderData();
 dubai.renderData();
 paris.renderData();
 lima.renderData();
-
-
-// var allStores = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'];
-
 
 ///hourlyResultsArray
 
