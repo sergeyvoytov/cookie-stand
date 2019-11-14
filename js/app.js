@@ -30,25 +30,26 @@ Shop.prototype.renderData = function () {
   }
   addElement('td', tableTr, this.totalSales);
 
+
   ///
 
   //function to render totals in footer  tr 
-// function renderFooter () {
-//   addElement('tr', tableTr,'Total');
-//   // for (var i = 0; i < store.hours.length; i++) {
-//   //   addElement('td', tableTr, store.hours[i]);
-//   // }
-// }
+  // function renderFooter () {
+  //   addElement('tr', tableTr,'Total');
+  //   // for (var i = 0; i < store.hours.length; i++) {
+  //   //   addElement('td', tableTr, store.hours[i]);
+  //   // }
+  // }
 
-// addElement('td', tableTr, this.shopName);
-// for (var i = 0; i < this.hourlyResultsArray.length; i++) {
-//   addElement('td', tableTr, this.hourlyResultsArray[i]);
-// }
-//tr
+  // addElement('td', tableTr, this.shopName);
+  // for (var i = 0; i < this.hourlyResultsArray.length; i++) {
+  //   addElement('td', tableTr, this.hourlyResultsArray[i]);
+  // }
+  //tr
 
-// function renderFooter{
-//   addElement('td', tableTr,'Total');
-// }
+  // function renderFooter{
+  //   addElement('td', tableTr,'Total');
+  // }
 }
 
 // Random Customer sales
@@ -98,3 +99,40 @@ tokyo.renderData();
 dubai.renderData();
 paris.renderData();
 lima.renderData();
+
+
+// var allStores = ['Seattle', 'Tokyo', 'Dubai', 'Paris', 'Lima'];
+
+
+///hourlyResultsArray
+
+function addFooterRow() {
+  //create tr for footer
+  // create td elements 14 times + MEGA Total
+  var footerRow = addElement('tr', tableElem);
+  addElement('td', footerRow, 'Totals');
+  // var megaTotal = 0;
+  for (var i = 0; i < hours.length; i++) {
+    var sumCities = 0;
+    var megaTotal = 0;
+    var td = document.createElement('td');
+    footerRow.appendChild(td);
+
+    sumCities += seattle.hourlyResultsArray[i];
+    sumCities += tokyo.hourlyResultsArray[i];
+    sumCities += dubai.hourlyResultsArray[i];
+    sumCities += paris.hourlyResultsArray[i];
+    sumCities += lima.hourlyResultsArray[i];
+    td.textContent = sumCities;
+  }
+  var tdMega = document.createElement('td');
+  footerRow.appendChild(tdMega);
+
+  megaTotal += seattle.totalSales;
+  megaTotal += tokyo.totalSales;
+  megaTotal += dubai.totalSales;
+  megaTotal += paris.totalSales;
+  megaTotal += lima.totalSales;
+  tdMega.textContent = megaTotal;
+}
+addFooterRow();
