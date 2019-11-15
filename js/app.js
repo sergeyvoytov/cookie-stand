@@ -3,6 +3,7 @@
 
 'use strict';
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var allShops = [];
 //function to add element
 function addElement(tag, container, text) {
   var element = document.createElement(tag);
@@ -10,7 +11,7 @@ function addElement(tag, container, text) {
   element.textContent = text;
   return element;
 }
-//Crating an Object
+//Creating an Object
 function Shop(shopName, minCustomers, maxCustomers, averageCookiePerCustomer) {
   this.shopName = shopName;
   this.minCustomers = minCustomers;
@@ -18,6 +19,7 @@ function Shop(shopName, minCustomers, maxCustomers, averageCookiePerCustomer) {
   this.averageCookiePerCustomer = averageCookiePerCustomer;
   this.hourlyResultsArray = [];
   this.totalSales = 0;
+  allShops.push[this];
 }
 //method
 
@@ -73,11 +75,32 @@ var tableElem = addElement('table', article);
 
 renderHours();
 
+
 seattle.renderData();
 tokyo.renderData();
 dubai.renderData();
 paris.renderData();
 lima.renderData();
+
+//form handling
+var form = document.getElementById('shop-form');
+
+function submitHandler(event) {
+  event.preventDefault();
+  var shop = new Shop(event.target.shopName.value, parseInt(event.target.minCustomers.value), parseInt(event.target.maxCustomers.value), parseFloat(event.target.averageCookiePerCustomer.value));
+  //event.target.reset();
+  // shop.push(this);
+  shop.renderData(this);
+
+  // console.log('shopname',this.min);
+  // shop.getRandomCustomerSales();
+  // getRandomCustomerSales(shop);
+
+  // this.shop.push(allStores);
+}
+
+form.addEventListener('submit', submitHandler);
+
 
 ///hourlyResultsArray
 
@@ -109,5 +132,10 @@ function addFooterRow() {
   megaTotal += paris.totalSales;
   megaTotal += lima.totalSales;
   tdMega.textContent = megaTotal;
+
+// for (var j=0, j < allShops.length; j++){
+//   megaTotal += shop.totalSales;
+// }
+
 }
 addFooterRow();
