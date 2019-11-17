@@ -111,3 +111,6 @@ for (var shop of allShops) {
 }
 addHeaderRow();
 addFooterRow();
+
+
+
